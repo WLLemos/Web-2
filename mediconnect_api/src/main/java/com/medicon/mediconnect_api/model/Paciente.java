@@ -1,4 +1,4 @@
-package com.medicon.mediconnect_api;
+package com.medicon.mediconnect_api.model;
 
 import jakarta.persistence.*;
 
