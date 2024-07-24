@@ -3,10 +3,8 @@ package com.medicon.mediconnect_api.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 
 @Entity
 public class Atendimento implements Serializable {

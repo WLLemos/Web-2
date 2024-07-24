@@ -1,7 +1,6 @@
 package com.medicon.mediconnect_api.controller;
 
 import com.medicon.mediconnect_api.model.Medico;
-import com.medicon.mediconnect_api.model.Paciente;
 import com.medicon.mediconnect_api.service.MedicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
