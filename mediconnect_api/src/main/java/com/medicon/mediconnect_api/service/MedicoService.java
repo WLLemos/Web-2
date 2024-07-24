@@ -23,7 +23,7 @@ public class MedicoService implements IService<Medico> {
 
     @Override
     public List<Medico> get(String termoBusca) {
-        return null;
+        return repo.busca(termoBusca);
     }
 
     @Override

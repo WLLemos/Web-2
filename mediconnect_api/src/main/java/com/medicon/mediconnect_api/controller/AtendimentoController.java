@@ -31,7 +31,8 @@ public class AtendimentoController implements IController<Atendimento>{
     @Override
     @GetMapping("/busca/{termobusca}")
     public ResponseEntity<List<Atendimento>> get(String termoBusca) {
-        return null;
+        List<Atendimento> registros = servico.get(termoBusca);
+        return new ResponseEntity<>(registros, HttpStatus.OK);
     }
 
     @Override

@@ -25,7 +25,7 @@ public class AtendimentoService implements IService<Atendimento> {
 
     @Override
     public List<Atendimento> get(String termoBusca) {
-        return null;
+        return repo.busca(termoBusca);
     }
 
     @Override

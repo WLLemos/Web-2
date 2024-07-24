@@ -33,7 +33,8 @@ public class MedicoController implements IController<Medico> {
     @Override
     @GetMapping("/busca/{termoBusca}")
     public ResponseEntity<List<Medico>> get(String termoBusca) {
-        return null;
+        List<Medico> registros = servico.get(termoBusca);
+        return new ResponseEntity<>(registros, HttpStatus.OK);
     }
 
     @Override

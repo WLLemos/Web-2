@@ -25,7 +25,7 @@ public class PacienteService implements IService<Paciente> {
 
     @Override
     public List<Paciente> get(String termoBusca) {
-        return null;
+        return repo.busca(termoBusca);
     }
 
     @Override
