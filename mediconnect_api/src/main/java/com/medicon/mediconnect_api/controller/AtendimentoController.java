@@ -5,11 +5,13 @@ import com.medicon.mediconnect_api.service.AtendimentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
 
 import java.util.List;
 
+@RestController
+@RequestMapping("/atendimento")
 public class AtendimentoController implements IController<Atendimento>{
     @Autowired
     private AtendimentoService servico;
@@ -23,35 +25,35 @@ public class AtendimentoController implements IController<Atendimento>{
 
     @Override
     @GetMapping("/{id}")
-    public ResponseEntity<Atendimento> get(Long id) {
+    public ResponseEntity<Atendimento> get(@PathVariable Long id) {
         Atendimento registro = servico.get(id);
         return new ResponseEntity<>(registro, HttpStatus.OK);
     }
 
     @Override
     @GetMapping("/busca/{termobusca}")
-    public ResponseEntity<List<Atendimento>> get(String termoBusca) {
+    public ResponseEntity<List<Atendimento>> get(@PathVariable String termoBusca) {
         List<Atendimento> registros = servico.get(termoBusca);
         return new ResponseEntity<>(registros, HttpStatus.OK);
     }
 
     @Override
     @PostMapping("/")
-    public ResponseEntity<Atendimento> insert(Atendimento objeto) {
+    public ResponseEntity<Atendimento> insert(@RequestBody Atendimento objeto) {
         Atendimento registro = servico.save(objeto);
         return new ResponseEntity<>(registro, HttpStatus.CREATED);
     }
 
     @Override
-    @PostMapping("/")
-    public ResponseEntity<Atendimento> update(Atendimento objeto) {
+    @PutMapping("/")
+    public ResponseEntity<Atendimento> update(@RequestBody Atendimento objeto) {
        Atendimento registro = servico.save(objeto);
        return new ResponseEntity<>(registro, HttpStatus.OK);
     }
 
     @Override
-    @PostMapping("/id")
-    public ResponseEntity<?> delete(Long id) {
+    @DeleteMapping("/id")
+    public ResponseEntity<?> delete(@PathVariable Long id) {
         servico.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

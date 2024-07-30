@@ -25,35 +25,35 @@ public class MedicoController implements IController<Medico> {
 
     @Override
     @GetMapping("/{id}")
-    public ResponseEntity<Medico> get(Long id) {
+    public ResponseEntity<Medico> get(@PathVariable Long id) {
         Medico registro = servico.get(id);
         return new ResponseEntity<>(registro, HttpStatus.OK);
     }
 
     @Override
     @GetMapping("/busca/{termoBusca}")
-    public ResponseEntity<List<Medico>> get(String termoBusca) {
+    public ResponseEntity<List<Medico>> get(@PathVariable String termoBusca) {
         List<Medico> registros = servico.get(termoBusca);
         return new ResponseEntity<>(registros, HttpStatus.OK);
     }
 
     @Override
     @PostMapping("/")
-    public ResponseEntity<Medico> insert(Medico objeto) {
+    public ResponseEntity<Medico> insert(@RequestBody Medico objeto) {
         Medico registro = servico.save(objeto);
         return new ResponseEntity<>(registro, HttpStatus.CREATED);
     }
 
     @Override
     @PutMapping("/")
-    public ResponseEntity<Medico> update(Medico objeto) {
+    public ResponseEntity<Medico> update(@RequestBody Medico objeto) {
         Medico registro = servico.save(objeto);
         return new ResponseEntity<>(registro, HttpStatus.OK);
     }
 
     @Override
     @DeleteMapping("/id")
-    public ResponseEntity<?> delete(Long id) {
+    public ResponseEntity<?> delete(@PathVariable Long id) {
         servico.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
