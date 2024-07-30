@@ -18,12 +18,12 @@ public class Atendimento implements Serializable {
     private LocalTime hora;
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private String status;
-    @Column(nullable = false)
+    private EStatus status;
     @ManyToOne
+    @JoinColumn(name = "paciente_id", nullable = false)
     private Paciente paciente;
-    @Column(nullable = false)
     @ManyToOne
+    @JoinColumn(name = "medico_id", nullable = false)
     private Medico medico;
 
     public Long getId() {
@@ -50,11 +50,11 @@ public class Atendimento implements Serializable {
         this.hora = hora;
     }
 
-    public String getStatus() {
+    public EStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(EStatus status) {
         this.status = status;
     }
 

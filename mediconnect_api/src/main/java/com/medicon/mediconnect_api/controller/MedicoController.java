@@ -45,7 +45,7 @@ public class MedicoController implements IController<Medico> {
     }
 
     @Override
-    @PostMapping("/")
+    @PutMapping("/")
     public ResponseEntity<Medico> update(Medico objeto) {
         Medico registro = servico.save(objeto);
         return new ResponseEntity<>(registro, HttpStatus.OK);
