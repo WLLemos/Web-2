@@ -10,13 +10,13 @@ public class Medico implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
     private Long id;
-    @Column(nullable = false)
+
     private String nome;
-    @Column(nullable = false)
+
     private String registroConselho;
-    @Column(nullable = false)
+
     private String telefone;
-    @Column(nullable = false)
+
     private String email;
 
     public Long getId() {

@@ -1,16 +1,16 @@
 SET SESSION FOREIGN_KEY_CHECKS=0;
 
 -- Dados para a tabela Paciente
-INSERT INTO Paciente (id, nome, email, telefone, dataNascimento, grupoSanguineo, sexo, cep) VALUES
-(1, 'João Silva', 'joao.silva@example.com', '11987654321', '1985-05-20', 'O+', 'Masculino', '01001-000'),
-(2, 'Maria Souza', 'maria.souza@example.com', '11987654322', '1990-08-15', 'A-', 'Feminino', '02002-000'),
-(3, 'Carlos Lima', 'carlos.lima@example.com', '11987654323', '1982-11-30', 'B+', 'Masculino', '03003-000');
+INSERT INTO Paciente (id, cep, data_nascimento, email, grupo_sanguineo, nome, sexo, telefone) VALUES
+(1, '01001-000', '1985-05-20', 'joao.silva@example.com', 'O+', 'João Silva', 'Masculino', '11987654321'),
+(2, '02002-000', '1990-08-15', 'maria.souza@example.com', 'A-', 'Maria Souza', 'Feminino', '11987654322'),
+(3, '03003-000', '1982-11-30', 'carlos.lima@example.com', 'B+', 'Carlos Lima', 'Masculino', '11987654323');
 
 -- Dados para a tabela Medico
-INSERT INTO Medico (id, nome, registroConselho, telefone, email) VALUES
-(1, 'Dr. Pedro Alves', 'CRM12345', '11987654324', 'pedro.alves@example.com'),
-(2, 'Dra. Ana Clara', 'CRM54321', '11987654325', 'ana.clara@example.com'),
-(3, 'Dr. Lucas Martins', 'CRM67890', '11987654326', 'lucas.martins@example.com');
+INSERT INTO Medico (id, email, nome, registro_conselho, telefone) VALUES
+(1, 'pedro.alves@example.com', 'Dr. Pedro Alves', 'CRM12345', '11987654324'),
+(2, 'ana.clara@example.com', 'Dra. Ana Clara', 'CRM54321', '11987654325'),
+(3, 'lucas.martins@example.com', 'Dr. Lucas Martins', 'CRM67890', '11987654326');
 
 -- Dados para a tabela Atendimento
 INSERT INTO Atendimento (id, data, hora, status, paciente_id, medico_id) VALUES

@@ -12,18 +12,18 @@ public class Atendimento implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
     private Long id;
-    @Column(nullable = false)
+
     private LocalDate data;
-    @Column(nullable = false)
+
     private LocalTime hora;
-    @Column(nullable = false)
+
     @Enumerated(EnumType.STRING)
     private EStatus status;
     @ManyToOne
-    @JoinColumn(name = "paciente_id", nullable = false)
+    @JoinColumn(name = "paciente_id")
     private Paciente paciente;
     @ManyToOne
-    @JoinColumn(name = "medico_id", nullable = false)
+    @JoinColumn(name = "medico_id")
     private Medico medico;
 
     public Long getId() {
