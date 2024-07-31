@@ -32,7 +32,7 @@ public class PacienteController implements IController<Paciente>{
 
     @Override
     @GetMapping("/busca/{termoBusca}")
-    public ResponseEntity<List<Paciente>> get(@PathVariable("termoBusca")String termoBusca) {
+    public ResponseEntity<List<Paciente>> get(@PathVariable("termoBusca") String termoBusca) {
         List<Paciente> registros = servico.get(termoBusca);
         return new ResponseEntity<>(registros, HttpStatus.OK);
     }
@@ -52,7 +52,7 @@ public class PacienteController implements IController<Paciente>{
     }
 
     @Override
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         servico.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
