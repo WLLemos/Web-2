@@ -25,7 +25,7 @@ public class AtendimentoController implements IController<Atendimento>{
 
     @Override
     @GetMapping("/{id}")
-    public ResponseEntity<Atendimento> get(@PathVariable Long id) {
+    public ResponseEntity<Atendimento> get(@PathVariable("id") Long id) {
         Atendimento registro = servico.get(id);
         return new ResponseEntity<>(registro, HttpStatus.OK);
     }
@@ -53,7 +53,7 @@ public class AtendimentoController implements IController<Atendimento>{
 
     @Override
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable Long id) {
+    public ResponseEntity<?> delete(@PathVariable("id") Long id) {
         servico.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

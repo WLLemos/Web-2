@@ -25,7 +25,7 @@ public class MedicoController implements IController<Medico> {
 
     @Override
     @GetMapping("/{id}")
-    public ResponseEntity<Medico> get(@PathVariable Long id) {
+    public ResponseEntity<Medico> get(@PathVariable("id") Long id) {
         Medico registro = servico.get(id);
         return new ResponseEntity<>(registro, HttpStatus.OK);
     }
@@ -53,7 +53,7 @@ public class MedicoController implements IController<Medico> {
 
     @Override
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable Long id) {
+    public ResponseEntity<?> delete(@PathVariable("id") Long id) {
         servico.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
